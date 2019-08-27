@@ -24,3 +24,6 @@ DevRing.create();
     @Streaming
     @GET
     Observable<JSONObject> download(@Url String download_url);
+
+4、对该类的使用==自行对接口调用进行修改
+ CheckUpUtil.getInstance().Check(this);
