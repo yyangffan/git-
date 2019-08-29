@@ -263,9 +263,10 @@ public class UpdateManager {
             return;
         }
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Build.VERSION.SDK_INT >= 24) {
             intent.setDataAndType(FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".fileProvider",new File(apkfile.getAbsolutePath())),"application/vnd.android.package-archive");
+			intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }else {
             intent.setDataAndType(Uri.fromFile(new File(apkfile.getAbsolutePath())), "application/vnd.android.package-archive");
         }
